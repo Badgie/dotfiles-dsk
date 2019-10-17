@@ -5,7 +5,7 @@ interval=1
 
 [weather]
 command=python ~/.config/i3blocks/dmi-weather/weather.py
-interval=5m
+interval=600
 
 [time]
 command=date +%a\ %d-%m-%y\ %H:%M:%S
