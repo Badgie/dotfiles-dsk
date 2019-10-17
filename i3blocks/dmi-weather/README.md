@@ -6,7 +6,7 @@ The script uses geolocation based on IP address to determine location to gather 
 Run the script from terminal
 ```
 [usr@host]$ python weather.py
-Cloudy, 10C 95%RH SSE2.55m/s
+Cloudy, rain, 1.4mm 12C 95%RH SSW2.58m/s
 ```
 or apply as a block in i3blocks or similar
 ```
