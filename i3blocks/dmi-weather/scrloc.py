@@ -3,7 +3,7 @@
 from urllib import request
 from urllib.error import URLError
 from pathlib import Path
-import re
+import json
 
 file = open(f'{Path.home()}/.config/i3blocks/dmi-weather/cities')
 cities = file.read().split('\n')
@@ -12,7 +12,7 @@ file.close()
 
 def get_loc() -> str:
     try:
-        response = request.urlopen('https://geoiptool.com/', timeout=5).read().decode('utf-8')
+        response = request.urlopen('https://ipinfo.io/', timeout=5).read().decode('utf-8')
     except URLError:
         response = "Failed to get response"
     return response
@@ -38,8 +38,8 @@ def extract_city_id(city: str) -> int:
 
 
 def extract_city(data: str) -> int:
-    city = re.findall(r'City:.*</div>', data)[0].strip('City: ').strip('</div>')
-    return extract_city_id(city)
+    obj = json.loads(data)
+    return extract_city_id(obj['city'])
 
 
 if __name__ == "__main__":
