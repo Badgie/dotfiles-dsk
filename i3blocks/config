@@ -1,0 +1,33 @@
+
+[ethernet]
+label=eth
+command=python ~/.config/i3blocks/eth.py
+interval=1
+
+[load]
+label=LOAD
+command=python ~/.config/i3blocks/load.py
+interval=5
+
+[disk]
+label=DSK
+command=python ~/.config/i3blocks/disk.py
+interval=1
+
+[cpu]
+label=CPU
+command=python ~/.config/i3blocks/cpu.py
+interval=1
+
+[memory]
+label=MEM
+command=python ~/.config/i3blocks/mem.py
+interval=1
+
+[archv]
+command=uname -r
+interval=once
+
+[time]
+command=date +%a\ %d-%m-%y\ %H:%M:%S
+interval=1

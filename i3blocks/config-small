@@ -1,0 +1,15 @@
+
+[spotify]
+command=python ~/.config/i3blocks/spotify.py
+interval=1
+
+[wttr]
+command=python ~/.config/i3blocks/wttr.py
+interval=60
+
+[time]
+command=date +%a\ %d-%m-%y\ %H:%M:%S
+interval=1
+
+# first block is not shown, this is simply to indent the actual blocks
+[null]
