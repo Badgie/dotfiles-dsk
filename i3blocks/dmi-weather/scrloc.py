@@ -5,7 +5,12 @@ from urllib.error import URLError
 from pathlib import Path
 import json
 
-file = open(f'{Path.home()}/.config/i3blocks/dmi-weather/cities')
+# Try opening on config-path, if not found, try pwd
+try:
+    file = open(f'{Path.home()}/.config/i3blocks/dmi-weather/cities')
+except:
+    file = open("./cities")
+
 cities = file.read().split('\n')
 file.close()
 

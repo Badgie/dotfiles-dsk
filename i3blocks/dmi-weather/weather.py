@@ -6,7 +6,7 @@ from urllib.error import URLError
 from pathlib import Path
 import subprocess
 
-city = int(subprocess.run(['python', f'{Path.home()}/.config/i3blocks/dmi-weather/scrloc.py'], stdout=subprocess.PIPE).stdout.decode('utf-8'))
+default_path = f'{Path.home()}/.config/i3blocks/dmi-weather/scrloc.py'
 
 
 def get_weather_data(url: str) -> str:
@@ -93,4 +93,11 @@ def format_line(data: str) -> str:
 
 
 if __name__ == '__main__':
+    # Try getting city from config-path, if not found, try pwd
+    try:
+        # Redirect stderr to /dev/null, to avoid printing errors on using fallback location for scrloc.py
+        city = int(subprocess.run(['python', default_path], stdout=subprocess.PIPE, stderr="dev/null").stdout.decode('utf-8'))
+    except:
+        city = int(subprocess.run(['python', './scrloc.py'], stdout=subprocess.PIPE).stdout.decode('utf-8'))
+
     print(format_line(get_weather_data(f'https://www.dmi.dk/NinJo2DmiDk/ninjo2dmidk?cmd=llj&id={city}')))
