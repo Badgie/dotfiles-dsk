@@ -2,9 +2,10 @@
 
 from urllib import request
 from urllib.error import URLError
+from pathlib import Path
 import re
 
-file = open('./cities')
+file = open(f'{Path.home()}/.config/i3blocks/dmi-weather/cities')
 cities = file.read().split('\n')
 file.close()
 

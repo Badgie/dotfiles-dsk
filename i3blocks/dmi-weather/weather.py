@@ -3,9 +3,11 @@
 import json
 from urllib import request
 from urllib.error import URLError
+from pathlib import Path
 import subprocess
 
-city = int(subprocess.run(['python', './scrloc.py'], stdout=subprocess.PIPE).stdout.decode('utf-8'))
+city = int(subprocess.run(['python', f'{Path.home()}/.config/i3blocks/dmi-weather/scrloc.py'], stdout=subprocess.PIPE)\
+           .stdout.decode('utf-8'))
 
 
 def get_weather_data(url: str) -> str:
@@ -28,13 +30,24 @@ def format_wind_dir(wind: str) -> str:
     return wind
 
 
+def format_desc_with_prec(prec: float, desc: str) -> str:
+    if prec < 0.5:
+        return f'{desc}, drizzle'
+    elif prec < 1:
+        return f'{desc}, light rain'
+    elif prec < 2:
+        return f'{desc}, rain'
+    else:
+        return f'{desc}, heavy rain'
+
+
 def format_weather_desc(prec: float, icon: int) -> str:
     if icon is 1:
-        return 'Sunny'
+        return format_desc_with_prec(prec, 'Sunny')
     elif icon is 2 or 102 or 103:
-        return 'Cloudy'
+        return format_desc_with_prec(prec, 'Cloudy')
     elif icon is 3:
-        return 'Overcast'
+        return format_desc_with_prec(prec, 'Overcast')
     elif icon is 60 or 80 or 160 or 180:
         if prec < 0.5:
             return 'Drizzle'
@@ -64,7 +77,6 @@ def format_weather_desc(prec: float, icon: int) -> str:
             return 'Thunder and heavy rain'
     elif icon is 101:
         return 'Clear sky'
-
 
 
 def format_line(data: str) -> str:
