@@ -9,11 +9,11 @@ default_path = f'{Path.home()}/.config/i3blocks/dmi-weather/scrloc.py'
 dmi_url = 'https://www.dmi.dk/NinJo2DmiDk/ninjo2dmidk?cmd=llj&id='
 ip_url = 'https://ipinfo.io/'
 
+# try opening token file, if not found, pass and continue with default url
 try:
     token = open(f'{Path.home()}/.config/i3blocks/dmi-weather/token').readline().strip('\n')
     ip_url += f'?token={token}'
 except:
-    # simply continue if token is not found
     pass
 
 # Try opening on config-path, if not found, try pwd
@@ -26,6 +26,7 @@ cities = file.read().split('\n')
 file.close()
 
 
+# get device location json through ipinfo
 def get_loc() -> str:
     try:
         response = request.urlopen(ip_url, timeout=5).read().decode('utf-8')
@@ -34,6 +35,7 @@ def get_loc() -> str:
     return response
 
 
+# reformat city name if øæå is present and extract city id
 def extract_city_id(city: str) -> int:
     for x in cities:
         if city in x:
@@ -58,6 +60,7 @@ def extract_city(data: str) -> int:
     return extract_city_id(obj['city'])
 
 
+# retrieve weather data from dmi
 def get_weather_data(url: str) -> str:
     try:
         response = request.urlopen(url, timeout=5).read().decode('utf-8')
@@ -70,6 +73,7 @@ def get_weather_data(url: str) -> str:
     return str(response)
 
 
+# reformat wind direction to english notation
 def format_wind_dir(wind: str) -> str:
     if 'V' in wind:
         wind = wind.replace('V', 'W')
@@ -78,6 +82,7 @@ def format_wind_dir(wind: str) -> str:
     return wind
 
 
+# append rain descriptor if applicable, based on precipitation
 def format_desc_with_prec(prec: float, desc: str) -> str:
     if 0.5 > prec > 0.0:
         return f'{desc}, drizzle'
@@ -90,6 +95,7 @@ def format_desc_with_prec(prec: float, desc: str) -> str:
     return desc
 
 
+# format weather decriptor based on dmi icon
 def format_weather_desc(prec: float, icon: int) -> str:
     if icon is 1:
         return format_desc_with_prec(prec, 'Sunny')
@@ -128,6 +134,7 @@ def format_weather_desc(prec: float, icon: int) -> str:
         return 'Clear sky'
 
 
+# format output line
 def format_line(data: str) -> str:
     weather = json.loads(data)
     current_hour = weather['timeserie'][0]

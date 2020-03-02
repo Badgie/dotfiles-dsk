@@ -7,3 +7,4 @@
 
 alias ls='ls -laph --color=auto'
 PS1='[\u@\h \W]\$ '
+export PATH="$PATH:$HOME/flutter/bin"

@@ -1,4 +1,11 @@
 
+[spotifyuri]
+full_text=♫
+command=while read button; do playerctl --player=spotify metadata xesam:url | xclip -d :0 -selection "clipboard"; done
+interval=persist
+
+separator=false
+
 [spotify]
 command=python ~/.config/i3blocks/spotify.py
 interval=1
