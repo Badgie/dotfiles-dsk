@@ -252,9 +252,44 @@ assign [class=^spotify$] 10
 exec --no-startup-id i3-msg 'workspace 10; exec discord; exec spotify'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 
-bindsym $mod+Shift+Return workspace 4; exec konsole
-
-# save currently playing spotify track
-bindsym Pause exec spotirec -s
-
 exec bash ~/scripts/monitor-setup.sh
+
+
+mode "metal" {
+    bindsym a exec --no-startup-id spotirec --add-to metal; mode "default"
+    bindsym r exec --no-startup-id spotirec --remove-from metal; mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "chill" {
+    bindsym a exec --no-startup-id spotirec --add-to chill; mode "default"
+    bindsym r exec --no-startup-id spotirec --remove-from chill; mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "like" {
+    bindsym a exec --no-startup-id spotirec -s; mode "default"
+    bindsym r exec --no-startup-id spotirec -sr; mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "presets" {
+    # all auto play on desktop
+    # up beat metal, 1
+    bindcode 10 exec --no-startup-id spotirec --load-preset upbeat-metal; mode "default"
+    # chill stuff, 2
+    bindcode 11 exec --no-startup-id spotirec --load-preset chillo; mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "blacklist" {
+    bindsym a exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -b; mode "default"
+    bindsym r exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -br; mode "default"
+    bindsym Escape mode "default"
+}
+
+bindcode 191 mode "metal"
+bindcode 192 mode "chill"
+bindcode 193 mode "like"
+bindcode 194 mode "presets"
+bindcode 195 mode "blacklist"
