@@ -252,9 +252,6 @@ assign [class=^spotify$] 10
 exec --no-startup-id i3-msg 'workspace 10; exec discord; exec spotify'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 
-exec bash ~/scripts/monitor-setup.sh
-
-
 mode "metal" {
     bindsym a exec --no-startup-id spotirec --add-to metal; mode "default"
     bindsym r exec --no-startup-id spotirec --remove-from metal; mode "default"

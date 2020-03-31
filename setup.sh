@@ -45,4 +45,5 @@ sys_symlink "shufflewall/shufflewall.service" "/etc/systemd/system/shufflewall.s
 sys_symlink "shufflewall/shufflewall.timer" "/etc/systemd/system/shufflewall.timer"
 
 # monitor setup
+sys_symlink "monitor/xorg.conf" "/etc/X11/xorg.conf"
 symlink "monitor/monitor-setup.sh" "scripts/monitor-setup.sh"
