@@ -290,3 +290,5 @@ bindcode 192 mode "chill"
 bindcode 193 mode "like"
 bindcode 194 mode "presets"
 bindcode 195 mode "blacklist"
+
+exec --no-startup-id feh --bg-scale ~/wp/yeet.png
