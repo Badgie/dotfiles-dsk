@@ -252,25 +252,25 @@ assign [class=^spotify$] 10
 exec --no-startup-id i3-msg 'workspace 10; exec discord; exec spotify'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 
-mode "metal" {
+mode "spotirec:playlist:metal" {
     bindsym a exec --no-startup-id spotirec --add-to metal; mode "default"
     bindsym r exec --no-startup-id spotirec --remove-from metal; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "chill" {
+mode "spotirec:playlist:chill" {
     bindsym a exec --no-startup-id spotirec --add-to chill; mode "default"
     bindsym r exec --no-startup-id spotirec --remove-from chill; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "like" {
+mode "spotirec:like" {
     bindsym a exec --no-startup-id spotirec -s; mode "default"
     bindsym r exec --no-startup-id spotirec -sr; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "presets" {
+mode "spotirec:presets" {
     # all auto play on desktop
     # up beat metal, 1
     bindcode 10 exec --no-startup-id spotirec --load-preset upbeat-metal; mode "default"
@@ -279,7 +279,7 @@ mode "presets" {
     bindsym Escape mode "default"
 }
 
-mode "blacklist" {
+mode "spotirec:blacklist" {
     bindsym a exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -b; mode "default"
     bindsym r exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -br; mode "default"
     bindsym Escape mode "default"
