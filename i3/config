@@ -285,10 +285,10 @@ mode "spotirec:blacklist" {
     bindsym Escape mode "default"
 }
 
-bindcode 191 mode "metal"
-bindcode 192 mode "chill"
-bindcode 193 mode "like"
-bindcode 194 mode "presets"
-bindcode 195 mode "blacklist"
+bindcode 191 mode "spotirec:playlist:metal"
+bindcode 192 mode "spotirec:playlist:chill"
+bindcode 193 mode "spotirec:like"
+bindcode 194 mode "spotirec:presets"
+bindcode 195 mode "spotirec:blacklist"
 
 exec --no-startup-id feh --bg-scale ~/wp/yeet.png
