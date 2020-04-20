@@ -40,6 +40,11 @@ symlink "i3blocks/config-small" ".config/i3blocks/config-small"
 mkdir -p "$HOME/.config/i3"
 symlink "i3/config" ".config/i3/config"
 
+# tixati
+# dependency: tixati
+mkdir -p "$HOME/.config/tixati"
+symlink "tixati/tix.colors" ".config/tixati/tix.colors"
+
 # spicetify
 # dependency: spicetify-cli
 mkdir -p "$HOME/.config/spicetify/Themes/Custom"
