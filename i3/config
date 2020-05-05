@@ -240,7 +240,7 @@ bindsym $mod+Shift+p exec escrotum -C
 bindsym $mod+p exec escrotum -sC
 # record
 # saves streamable link to clipboard
-bindsym $mod+Ctrl+c exec bash ~/scripts/escrotum-upload/escrot-upload.sh
+bindsym $mod+Ctrl+p exec bash ~/scripts/escrotum-upload/escrot-upload.sh
 
 # set static workspace positions
 workspace 1 output primary
