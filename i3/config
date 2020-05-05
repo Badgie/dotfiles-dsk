@@ -235,9 +235,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 
 # screenshot binds
 # entire screen
-bindsym $mod+Shift+p exec escrotum -C
+bindsym $mod+Shift+p exec escrotum /tmp/scrot.png && xclip -selection clipboard -t image/png /tmp/scrot.png
 # select area
-bindsym $mod+p exec escrotum -sC
+bindsym $mod+p exec escrotum -s /tmp/scrot.png && xclip -selection clipboard -t image/png /tmp/scrot.png
 # record
 # saves streamable link to clipboard
 bindsym $mod+Ctrl+p exec bash ~/scripts/escrotum-upload/escrot-upload.sh
