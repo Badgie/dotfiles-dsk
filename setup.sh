@@ -40,6 +40,11 @@ symlink "i3blocks/config-small" ".config/i3blocks/config-small"
 mkdir -p "$HOME/.config/i3"
 symlink "i3/config" ".config/i3/config"
 
+# escrot uploading
+# dependency: escrotum-git
+mkdir -p "$HOME/scripts/escrotum-upload"
+symlink "escrotum-upload/escrot-upload.sh"
+
 # tixati
 # dependency: tixati
 mkdir -p "$HOME/.config/tixati"

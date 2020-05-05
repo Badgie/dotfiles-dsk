@@ -10,3 +10,8 @@ password=<password>
 ```
 
 The URL for the uploaded video will be stored on your clipboard.
+
+---
+
+# NOTE
+You need to hit `ctrl+alt+s` to stop recording.

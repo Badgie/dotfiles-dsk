@@ -238,6 +238,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym $mod+Shift+p exec escrotum -C
 # select area
 bindsym $mod+p exec escrotum -sC
+# record
+# saves streamable link to clipboard
+bindsym $mod+Ctrl+c exec bash ~/scripts/escrotum-upload/escrot-upload.sh
 
 # set static workspace positions
 workspace 1 output primary
