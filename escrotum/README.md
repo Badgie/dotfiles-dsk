@@ -1,13 +1,6 @@
 # Escrotum helper scripts
 Small scripts to assist doing escrotum stuff in troubling times.
 
-## Image to clipboard
-This line can simply be bound to a key
-
-```bash
-escrotum -s /tmp/scrot.png && xclip -selection clipboard -t image/png /tmp/scrot.png
-```
-
 ## Upload image and copy url
 
 Runs `escrotum` video recording (`-rs`) and uploads to [Streamable](streamable.com).
