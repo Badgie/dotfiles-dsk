@@ -57,6 +57,11 @@ mkdir -p "/usr/share/spicetify-cli/Themes/Custom"
 symlink "spicetify/Custom/color.ini" "/usr/share/spicetify-cli/Themes/Custom/color.ini"
 symlink "spicetify/Custom/user.css" "/usr/share/spicetify-cli/Themes/Custom/user.css"
 
+# spotirec
+# dependency: spotirec-git
+mkdir -p "$HOME/.config/spotirec"
+symlink "spotirec/spotirec.conf" ".config/spotirec/spotirec.conf"
+
 # shufflewall
 sys_symlink "shufflewall/shufflewall.service" "/etc/systemd/system/shufflewall.service"
 sys_symlink "shufflewall/shufflewall.timer" "/etc/systemd/system/shufflewall.timer"
