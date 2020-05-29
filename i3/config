@@ -255,25 +255,35 @@ assign [class=^spotify$] 10
 exec --no-startup-id i3-msg 'workspace 10; exec discord; exec spotify'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 
-mode "spotirec:playlist:metal" {
+# wallpaper
+exec --no-startup-id feh --bg-scale ~/wp/yeet.png
+
+# mode ids
+set $metal "spotirec:playlist:metal; a: add; r: remove; esc: quit"
+set $chill "spotirec:playlist:chill; a: add; r: remove; esc: quit"
+set $like "spotirec:like; a: add; r: remove; esc: quit"
+set $preset "spotirec:presets; 1: upbeat-metal; 2: chillo; esc: quit"
+set $blacklist "spotirec:blacklist:track; a: add, r: remove; esc: quit"
+
+mode $metal {
     bindsym a exec --no-startup-id spotirec --add-to metal; mode "default"
     bindsym r exec --no-startup-id spotirec --remove-from metal; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "spotirec:playlist:chill" {
+mode $chill {
     bindsym a exec --no-startup-id spotirec --add-to chill; mode "default"
     bindsym r exec --no-startup-id spotirec --remove-from chill; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "spotirec:like" {
+mode $like {
     bindsym a exec --no-startup-id spotirec -s; mode "default"
     bindsym r exec --no-startup-id spotirec -sr; mode "default"
     bindsym Escape mode "default"
 }
 
-mode "spotirec:presets" {
+mode $preset {
     # all auto play on desktop
     # up beat metal, 1
     bindcode 10 exec --no-startup-id spotirec --load-preset upbeat-metal; mode "default"
@@ -282,16 +292,14 @@ mode "spotirec:presets" {
     bindsym Escape mode "default"
 }
 
-mode "spotirec:blacklist" {
+mode $blacklist {
     bindsym a exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -b; mode "default"
     bindsym r exec --no-startup-id playerctl metadata mpris:trackid | xargs spotirec -br; mode "default"
     bindsym Escape mode "default"
 }
 
-bindcode 191 mode "spotirec:playlist:metal"
-bindcode 192 mode "spotirec:playlist:chill"
-bindcode 193 mode "spotirec:like"
-bindcode 194 mode "spotirec:presets"
-bindcode 195 mode "spotirec:blacklist"
-
-exec --no-startup-id feh --bg-scale ~/wp/yeet.png
+bindcode 191 mode $metal
+bindcode 192 mode $chill
+bindcode 193 mode $like
+bindcode 194 mode $preset
+bindcode 195 mode $blacklist
