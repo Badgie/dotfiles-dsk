@@ -1,10 +1,10 @@
 [spotirecoauth]
-access_token = BQCr28rm3w5SNrdTMr0yplnkJqtSEGE3-HjsoBafN_m1x2bZYxEZSd_0H9TDvo4NOBP5Pl6PDXEHF6_iV2FSeITWcGUk9hRdzYc9nOGqXxv9JAuSokzLfBODDve9t6G1KMnkvTt5FW-9H13L8MMZU4Xv4nu40ufCQhIbFH7fMko-gjGtM7Plb1PPEjbJHiuYuqpeAfGL4fQODIb7JehtbjmkrAkrunR0IFm5lEX_9E0h5SjgE1kXgA
-token_type = Bearer
-expires_in = 3600
-scope = user-modify-playback-state ugc-image-upload user-library-read user-library-modify playlist-modify-private playlist-modify-public user-read-playback-state user-read-email user-top-read user-read-private
-expires_at = 1589380803
-refresh_token = AQD7BgiLSGehZycprhAUwJUa_C0QmJdKQyUUlu_dcAoZfho8vvZZztbEdZ2dGUvjD-sfLw1UlNPkxFSSJUEOuvnVuMxzC8HINLYER1SZuxdkD8JJW8H0rJCsN6bGYO5I1dk
+access_token =
+token_type =
+expires_in =
+scope =
+expires_at =
+refresh_token =
 
 [presets]
 upbeat-metal = {'limit': 100, 'based_on': 'custom artists', 'seed': '57ylwQTnFnIhJh4nu4rxCs,2KaW48xlLnXC2v8tvyhWsa,3OpqU68JpZlzvjAJj3B2Da', 'seed_type': 'artists', 'seed_info': {0: {'name': 'In Flames', 'id': '57ylwQTnFnIhJh4nu4rxCs', 'type': 'artist'}, 1: {'name': 'Amaranthe', 'id': '2KaW48xlLnXC2v8tvyhWsa', 'type': 'artist'}, 2: {'name': 'Alestorm', 'id': '3OpqU68JpZlzvjAJj3B2Da', 'type': 'artist'}}, 'rec_params': {'limit': '100', 'min_tempo': '160', 'seed_artists': '57ylwQTnFnIhJh4nu4rxCs,2KaW48xlLnXC2v8tvyhWsa,3OpqU68JpZlzvjAJj3B2Da'}, 'auto_play': False, 'playback_device': {}}
