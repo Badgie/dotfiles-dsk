@@ -262,7 +262,7 @@ exec --no-startup-id feh --bg-scale ~/wp/yeet.png
 set $metal "spotirec:playlist:metal; a: add; r: remove; esc: quit"
 set $chill "spotirec:playlist:chill; a: add; r: remove; esc: quit"
 set $like "spotirec:like; a: add; r: remove; esc: quit"
-set $preset "spotirec:presets; 1: upbeat-metal; 2: chillo; esc: quit"
+set $preset "spotirec:presets; 1: upbeat-metal; 2: chillo; 3: mellow; esc: quit"
 set $blacklist "spotirec:blacklist:track; a: add, r: remove; esc: quit"
 
 mode $metal {
@@ -289,6 +289,8 @@ mode $preset {
     bindcode 10 exec --no-startup-id spotirec --load-preset upbeat-metal; mode "default"
     # chill stuff, 2
     bindcode 11 exec --no-startup-id spotirec --load-preset chillo; mode "default"
+    # mellow stuff, 3
+    bindcode 12 exec --no-startup-id spotirec --load-preset mellow; mode "default"
     bindsym Escape mode "default"
 }
 
