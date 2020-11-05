@@ -11,6 +11,7 @@
 . ~/.config/escrotum/.secret
 
 # run recording
+notify-send -u normal "Escrotum is recording. Hit Alt+Ctrl+S to stop."
 escrotum "$HOME/escrotum-vid.webm" -rs
 
 # upload video and extract shortcode from output
@@ -20,4 +21,4 @@ res=$(curl https://api.streamable.com/upload -u "$username":"$password" -F file=
 # construct url for newly uploaded vid and copy to clipboard
 echo "https://streamable.com/$res" | xclip -d :0 -selection "clipboard"
 
-
+notify-send -u normal "Uploaded screencap: https://streamable.com/$res"
